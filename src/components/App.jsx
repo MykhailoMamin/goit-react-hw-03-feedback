@@ -56,11 +56,9 @@ export default class App extends Component {
   render() {
     const normalisedFilter = this.state.filter.toLowerCase();
 
-    const filterContacts = this.state.contacts
-      ? this.state.contacts.filter(contact =>
-          contact.text.toLowerCase().includes(normalisedFilter)
-        )
-      : [];
+    const filterContacts = (this.state.contacts || []).filter(contact =>
+      contact.text.toLowerCase().includes(normalisedFilter)
+    );
 
     return (
       <div className="Container">
